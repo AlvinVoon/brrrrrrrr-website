@@ -48,20 +48,20 @@ export default function App() {
   return (
     <SSRProvider>
     <Container style={{marginTop:'20px'}}>
+    <Row align="middle">
+      <Col span={24}>
       <Text h1 size={88} css={{
           textGradient: "45deg, $blue600 -20%, $pink600 50%",
         }}
-        weight="bold">New Brrrrrrrr</Text>
-      <Row align="middle">
-        <Col span={6}>
-          <Input placeholder="Next UI" />
-          </Col>
-          <Col span={18}>
+        weight="bold"> Brrrrrrrr</Text>
+        </Col>
+        <Col span={2}>
               <Avatar 
           squared 
-          src="https://i.pravatar.cc/150?u=a042581f4e29026024d" />
+          src="https://i.pravatar.cc/150?u=a042581f4e29026024d" style={{marginTop:25, width:50, height:50}}/>
           </Col>
-      </Row>
+              </Row>
+          <Input placeholder="Search" />
     <Grid.Container gap={2} justify="flex-start" >
       {list.map((item, index) => (
         <Grid xs={6} sm={3} key={index}>
