@@ -1,4 +1,5 @@
 import { Card, Grid, Row, Text, Container, Avatar, Spacer, Col, Input, Button } from "@nextui-org/react";
+import {SSRProvider} from '@react-aria/ssr';
 
 export default function App() {
   const list = [
@@ -45,6 +46,7 @@ export default function App() {
   ];
 
   return (
+    <SSRProvider>
     <Container style={{marginTop:'20px'}}>
       <Text h1 size={88} css={{
           textGradient: "45deg, $blue600 -20%, $pink600 50%",
@@ -85,8 +87,9 @@ export default function App() {
     </Grid.Container>
     <div style={{position:
     'fixed', bottom:20,right:20 }}>
-      <Button auto color="gradient" rounded bordered style={{width:60,height:60}}>➕</Button>
+      <Button auto color="gradient" rounded bordered style={{width:60,height:60}}><Text style={{fontSize:20}}>➕</Text></Button>
     </div>
     </Container>
+    </SSRProvider>
   );
 }
