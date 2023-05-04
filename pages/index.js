@@ -1,115 +1,92 @@
-import Head from 'next/head';
-import styles from '../styles/Home.module.css';
+import { Card, Grid, Row, Text, Container, Avatar, Spacer, Col, Input, Button } from "@nextui-org/react";
 
-export default function Home() {
+export default function App() {
+  const list = [
+    {
+      title: "Orange",
+      img: "/images/fruit-1.jpeg",
+      price: "$5.50",
+    },
+    {
+      title: "Tangerine",
+      img: "/images/fruit-2.jpeg",
+      price: "$3.00",
+    },
+    {
+      title: "Cherry",
+      img: "/images/fruit-3.jpeg",
+      price: "$10.00",
+    },
+    {
+      title: "Lemon",
+      img: "/images/fruit-4.jpeg",
+      price: "$5.30",
+    },
+    {
+      title: "Avocado",
+      img: "/images/fruit-5.jpeg",
+      price: "$15.70",
+    },
+    {
+      title: "Lemon 2",
+      img: "/images/fruit-6.jpeg",
+      price: "$8.00",
+    },
+    {
+      title: "Banana",
+      img: "/images/fruit-7.jpeg",
+      price: "$7.50",
+    },
+    {
+      title: "Watermelon",
+      img: "/images/fruit-8.jpeg",
+      price: "$12.20",
+    },
+  ];
+
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing <code>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel" className={styles.logo} />
-        </a>
-      </footer>
-
-      <style jsx>{`
-        main {
-          padding: 5rem 0;
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-        footer {
-          width: 100%;
-          height: 100px;
-          border-top: 1px solid #eaeaea;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-        footer img {
-          margin-left: 0.5rem;
-        }
-        footer a {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          text-decoration: none;
-          color: inherit;
-        }
-        code {
-          background: #fafafa;
-          border-radius: 5px;
-          padding: 0.75rem;
-          font-size: 1.1rem;
-          font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-        }
-      `}</style>
-
-      <style jsx global>{`
-        html,
-        body {
-          padding: 0;
-          margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
-        }
-        * {
-          box-sizing: border-box;
-        }
-      `}</style>
+    <Container style={{marginTop:'20px'}}>
+      <Text h1 size={88} css={{
+          textGradient: "45deg, $blue600 -20%, $pink600 50%",
+        }}
+        weight="bold">New Brrrrrrrr</Text>
+      <Row align="middle">
+        <Col span={6}>
+          <Input placeholder="Next UI" />
+          </Col>
+          <Col span={18}>
+              <Avatar 
+          squared 
+          src="https://i.pravatar.cc/150?u=a042581f4e29026024d" />
+          </Col>
+      </Row>
+    <Grid.Container gap={2} justify="flex-start" >
+      {list.map((item, index) => (
+        <Grid xs={6} sm={3} key={index}>
+          <Card isPressable onPress={console.log("It work")}>
+            <Card.Body css={{ p: 0 }}>
+              <Card.Image
+                src={"https://nextui.org" + item.img}
+                objectFit="cover"
+                width="100%"
+                height={140}
+                alt={item.title}
+              />
+            </Card.Body>
+            <Card.Footer css={{ justifyItems: "flex-start" }}>
+              <Row wrap="wrap" 
+              align="center">
+                <Text b>{item.title}</Text>
+              </Row>
+            </Card.Footer>
+          </Card>
+        </Grid>
+      ))}
+    </Grid.Container>
+    <div style={{position:
+    'fixed', bottom:20,right:20 }}>
+      <Button auto color="gradient" rounded bordered>Hi</Button>
     </div>
-  )
+    </Container>
+  );
 }
