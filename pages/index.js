@@ -85,7 +85,7 @@ export default function App() {
     </Grid.Container>
     <div style={{position:
     'fixed', bottom:20,right:20 }}>
-      <Button auto color="gradient" rounded bordered>Hi</Button>
+      <Button auto color="gradient" rounded bordered style={{width:60,height:60}}>➕</Button>
     </div>
     </Container>
   );
