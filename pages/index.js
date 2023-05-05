@@ -1,4 +1,5 @@
-import { Card, Grid, Row, Text, Container, Avatar, Spacer, Col, Input, Button } from "@nextui-org/react";
+import { Card, Grid, Row, Text, Container, Avatar, Spacer, Col, Input, Button, Progress } from "@nextui-org/react";
+import Link from 'next/link';
 import {SSRProvider} from '@react-aria/ssr';
 
 export default function App() {
@@ -7,41 +8,50 @@ export default function App() {
       title: "Orange",
       img: "/images/fruit-1.jpeg",
       price: "$5.50",
+      name:"Alvin",
+      value:50,
     },
     {
       title: "Tangerine",
       img: "/images/fruit-2.jpeg",
       price: "$3.00",
+      value:20,
     },
     {
       title: "Cherry",
       img: "/images/fruit-3.jpeg",
       price: "$10.00",
+      value:80,
     },
     {
       title: "Lemon",
       img: "/images/fruit-4.jpeg",
       price: "$5.30",
+      value:50,
     },
     {
       title: "Avocado",
       img: "/images/fruit-5.jpeg",
       price: "$15.70",
+      value:90,
     },
     {
       title: "Lemon 2",
       img: "/images/fruit-6.jpeg",
       price: "$8.00",
+      value:10,
     },
     {
       title: "Banana",
       img: "/images/fruit-7.jpeg",
       price: "$7.50",
+      value:55,
     },
     {
       title: "Watermelon",
       img: "/images/fruit-8.jpeg",
       price: "$12.20",
+      value:76,
     },
   ];
 
@@ -76,9 +86,24 @@ export default function App() {
               />
             </Card.Body>
             <Card.Footer css={{ justifyItems: "flex-start" }}>
-              <Row wrap="wrap" 
+              <Row wrap="wrap"
               align="center">
+                <Row>
+                <Col span={24}>
+                  <Col>
                 <Text b>{item.title}</Text>
+                </Col>
+                <Col>
+                <Progress color="primary" shadow value={item.value} />
+                </Col>
+                </Col>
+                <Spacer x={1}/>
+                <Col span={15}>
+                  <Link href="./info">
+                <Button size="sm">Learn More</Button>
+                </Link>
+                </Col>
+                </Row>
               </Row>
             </Card.Footer>
           </Card>
